@@ -1,0 +1,22 @@
+# Explicit build inputs: local credentials/history never enter Docker context.
+**
+!Cargo.toml
+!Cargo.lock
+!LICENSE
+!THIRD_PARTY_NOTICES.md
+!crates/
+!crates/**
+**/target/**
+**/__pycache__/**
+**/*.pyc
+**/*.rs.bk
+**/.env
+**/.env.*
+**/config.toml
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*.log
+**/secrets/**
+**/certs/**

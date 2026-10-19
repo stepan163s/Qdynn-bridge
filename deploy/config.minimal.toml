@@ -1,0 +1,8 @@
+# Copy outside the repository, fill in your domain and the existing MTProxy secret.
+hostname = "proxy.example.com"
+secret = "REPLACE_WITH_YOUR_MTPROXY_SECRET"
+backend = "127.0.0.1:2398"
+# Keep a fixed carrier until auto is accepted on your Android/WebView build.
+carrier_mode = "websocket"
+public_dir = "/var/www/qdynn"
+# All resource limits and deadlines have defaults; see config.example.toml.

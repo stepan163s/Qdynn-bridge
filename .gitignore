@@ -1,0 +1,47 @@
+# Build products and caches
+/target/
+**/target/
+__pycache__/
+*.py[cod]
+**/*.rs.bk
+.DS_Store
+.idea/
+.vscode/
+
+# Local development history, audits and publication staging
+/.local/
+/audit/
+/LOCAL_*.md
+/SERVER_AUDIT.md
+/SERVER_OPERATIONS_*.md
+
+# Real configuration and credentials (examples remain tracked)
+/config.toml
+/config.*.toml
+!config.example.toml
+.env
+.env.*
+!.env.example
+/secrets/
+/certs/
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Logs, databases, dumps and packaged binaries
+*.log
+*.pid
+*.sqlite*
+*.db
+*.dump
+*.bak
+*.backup
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+/qdynn-bridge
+/qdynn-bridge.previous

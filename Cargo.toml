@@ -1,0 +1,44 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/qdynn-proto",
+    "crates/qdynn-core",
+    "crates/qdynn-server",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Stepan <stepan163s>"]
+license = "MIT"
+repository = "https://github.com/stepan163s/Qdynn-bridge"
+
+[workspace.dependencies]
+tokio = { version = "1.43", features = ["full"] }
+bytes = "1.10"
+axum = { version = "0.8", features = ["ws"] }
+tower = { version = "0.5", features = ["util"] }
+tower-http = { version = "0.6", features = ["cors", "trace", "fs"] }
+tokio-tungstenite = "0.26"
+futures-util = "0.3"
+dashmap = "6.1"
+parking_lot = "0.12"
+hmac = "0.12"
+sha2 = "0.10"
+base64 = "0.22"
+hex = "0.4"
+subtle = "2.6"
+rand = "0.9"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+clap = { version = "4.5", features = ["derive", "env"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+thiserror = "2.0"
+anyhow = "1.0"
+qrcode = "0.14"
+
+# Internal crates
+qdynn-proto = { path = "crates/qdynn-proto" }
+qdynn-core = { path = "crates/qdynn-core" }

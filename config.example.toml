@@ -1,0 +1,54 @@
+# Qdynn-Bridge configuration file (Optional)
+
+# Bind address and port for the HTTP/WebSocket relay
+listen = "127.0.0.1:8080"
+
+# Public domain name configured on Caddy / DNS
+hostname = "proxy.example.com"
+
+# MTProxy secret in hex (16 bytes or 17 bytes with 'dd' prefix for random padding)
+secret = "REPLACE_WITH_YOUR_MTPROXY_SECRET"
+
+# MTProxy backend address (Official mtproto-proxy port)
+backend = "127.0.0.1:2398"
+
+# Transport mode: fixed, or "auto" (WS, then HTTPS on startup/recovery WS opening failure)
+carrier_mode = "websocket"
+
+# Startup budget also bounds response-body reads and the first multiplexed WS upgrade.
+startup_timeout_ms = 15000
+websocket_open_timeout_ms = 4000
+# Maximum time for an individual later carrier request, including response body.
+request_timeout_ms = 90000
+
+# Process-local admission caps. Defaults preserve the original fixed limits.
+max_bootstraps = 1024
+max_sessions = 128
+max_bootstraps_per_profile = 1024
+max_sessions_per_profile = 128
+max_api_requests = 256
+max_websockets = 256
+
+# Bounded payload budgets in bytes; global budgets must be >= per-session budgets.
+session_queue_data_bytes = 16777216
+session_queue_control_bytes = 131072
+global_queue_data_bytes = 134217728
+global_queue_control_bytes = 4194304
+input_body_bytes = 67108864
+max_backend_connections = 256
+max_streams_per_session = 32
+max_lanes_per_session = 129
+lane_queue_items = 128
+lane_data_items = 96
+stream_queue_items = 4096
+
+# Trust forwarded client addresses only from these reverse proxy CIDRs.
+# The proxy must overwrite/append X-Forwarded-For; keep empty for direct clients.
+trusted_proxy_cidrs = []
+
+# Optional path to static website directory for camouflage.
+# If omitted or commented out, the built-in camouflage website is served.
+# public_dir = "/var/www/html"
+
+# Optional private health/readiness/metrics listener; never publish through TLS proxy.
+# admin_listen = "127.0.0.1:9090"
